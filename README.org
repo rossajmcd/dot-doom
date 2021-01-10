@@ -1,0 +1,7 @@
+#+title: My Doom Emacs configuration
+#+author: Ross McDonald
+#+author: email@rossputin.me
+
+Inspired by Zzamboni's Literate config.
+
+See [[file:doom.org][doom.org]] for the source configuration file with full commentary. From this file, three configuration files are generated: [[file:init.el][init.el]], [[file:packages.el][packages.el]] and [[file:config.el][config.el]]. These are the files read by Doom Emacs.

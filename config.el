@@ -64,11 +64,6 @@
 
 (setq org-directory "~/org")
 
-(cond (IS-MAC
-       (setq mac-command-modifier      'meta
-             mac-option-modifier       'alt
-             mac-right-option-modifier 'alt)))
-
 (setq kill-whole-line t)
 
 (setq display-line-numbers-type t)

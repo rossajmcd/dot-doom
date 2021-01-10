@@ -399,15 +399,6 @@ change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org")
 #+end_src
 
-Change the Mac modifiers to my liking.
-
-#+begin_src emacs-lisp
-(cond (IS-MAC
-       (setq mac-command-modifier      'meta
-             mac-option-modifier       'alt
-             mac-right-option-modifier 'alt)))
-#+end_src
-
 When at the beginning of the line, make =Ctrl-K= remove the whole line, instead of just emptying it.
 
 #+begin_src emacs-lisp

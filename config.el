@@ -94,3 +94,5 @@
   (deft-directory orgroam-directory))
 
 (setq org-roam-directory orgroam-directory)
+
+(map! "C-c d" (cmd! (writeroom-mode)))

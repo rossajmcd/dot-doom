@@ -93,6 +93,12 @@
   (deft-default-extension "org")
   (deft-directory orgroam-directory))
 
+(use-package! writeroom-mode
+  :demand t
+  :config
+  ;; Your configurations....
+  )
+
 (setq org-roam-directory orgroam-directory)
 
 (map! "C-c d" (cmd! (writeroom-mode)))

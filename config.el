@@ -94,3 +94,17 @@
   (deft-directory orgroam-directory))
 
 (setq org-roam-directory orgroam-directory)
+
+(use-package! writeroom-mode
+  :bind
+  ("C-c d" . writeroom-mode)
+  ;;:hook
+  ;;(org-mode . writeroom-mode)
+  ;;(w3m-mode . writeroom-mode)
+  ;;:config
+  ;;(advice-add 'text-scale-adjust :after
+              ;;#'visual-fill-column-adjust)
+
+  ;;;https://github.com/joostkremers/writeroom-mode#fullscreen-effect
+  ;;(setq writeroom-fullscreen-effect 'maximized)
+)

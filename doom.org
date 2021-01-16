@@ -121,6 +121,7 @@ We start by simply defining the standard headers used by the three files. These 
 ;;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;;(unpin! t)
+(package! writeroom-mode)
 #+end_src
 #+html: </details>
 
@@ -456,4 +457,22 @@ org-roam.
 
 #+begin_src emacs-lisp
 (setq org-roam-directory orgroam-directory)
+#+end_src
+
+writeroom-mode distractoin free writing.
+
+#+begin_src emacs-lisp
+(use-package! writeroom-mode
+  :bind
+  ("C-c d" . writeroom-mode)
+  ;;:hook
+  ;;(org-mode . writeroom-mode)
+  ;;(w3m-mode . writeroom-mode)
+  ;;:config
+  ;;(advice-add 'text-scale-adjust :after
+              ;;#'visual-fill-column-adjust)
+
+  ;;;https://github.com/joostkremers/writeroom-mode#fullscreen-effect
+  ;;(setq writeroom-fullscreen-effect 'maximized)
+)
 #+end_src

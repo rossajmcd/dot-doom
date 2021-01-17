@@ -60,7 +60,7 @@
 (setq user-full-name "Ross McDonald"
       user-mail-address "email@rossputin.me")
 
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-dracula)
 
 (setq org-directory "~/org")
 

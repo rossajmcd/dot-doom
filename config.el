@@ -60,9 +60,11 @@
 (setq user-full-name "Ross McDonald"
       user-mail-address "email@rossputin.me")
 
-(setq doom-theme 'doom-dracula)
+(setq doom-font (font-spec :family "Fira Code" :size 14))
 
-(setq org-directory "~/org")
+(add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
+
+(setq projectile-project-search-path "~/Projects/mine/")
 
 (setq kill-whole-line t)
 
@@ -108,3 +110,8 @@
   ;;;https://github.com/joostkremers/writeroom-mode#fullscreen-effect
   ;;(setq writeroom-fullscreen-effect 'maximized)
 )
+
+(global-set-key (kbd "M-n")
+    (lambda () (interactive) (forward-line  5)))
+(global-set-key (kbd "M-p")
+    (lambda () (interactive) (forward-line -5)))

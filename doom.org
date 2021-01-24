@@ -225,7 +225,7 @@ This code is written to the =init.el= to select which modules to load. Written h
  hl-todo               ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
  ;;hydra
  ;;indent-guides       ; highlighted indent columns
- ;;ligatures           ; ligatures and symbols to make your code pretty again
+ ligatures             ; ligatures and symbols to make your code pretty again
  ;;minimap             ; show a map of the code on the side
  modeline              ; snazzy, Atom-inspired modeline, plus API
  nav-flash             ; blink cursor line after big motions
@@ -233,7 +233,7 @@ This code is written to the =init.el= to select which modules to load. Written h
  ophints               ; highlight the region an operation acts on
  (popup +defaults)     ; tame sudden yet inevitable temporary windows
  ;;tabs                ; a tab bar for Emacs
- ;;treemacs            ; a project drawer, like neotree but cooler
+ treemacs              ; a project drawer, like neotree but cooler
  ;;unicode             ; extended unicode support for various languages
  vc-gutter             ; vcs diff in the fringe
  vi-tilde-fringe       ; fringe tildes to mark beyond EOB
@@ -388,15 +388,30 @@ My user information.
       user-mail-address "email@rossputin.me")
 #+end_src
 
+I like Fira Code - its beautiful and I ilke ligatures. I default to 14 pt.
+#+begin_src emacs-lisp
+(setq doom-font (font-spec :family "Fira Code" :size 14))
+#+end_src
+
+Prevents some cases of Emacs flickering
+#+begin_src emacs-lisp
+(add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
+#+end_src
+
 Use the default Emacs Doom theme.
 
-#+begin_src emacs-lisp
+,#+begin_src emacs-lisp
 (setq doom-theme 'doom-dracula)
+#+end_src
+
+Setting Prjoectile up to know where my projects are.
+#+begin_src emacs-lisp
+(setq projectile-project-search-path "~/Projects/mine/")
 #+end_src
 
 If you use `org' and don't want your org files in the default location below,
 change `org-directory'. It must be set before org loads!
-#+begin_src emacs-lisp
+,#+begin_src emacs-lisp
 (setq org-directory "~/org")
 #+end_src
 
@@ -475,4 +490,13 @@ writeroom-mode distractoin free writing.
   ;;;https://github.com/joostkremers/writeroom-mode#fullscreen-effect
   ;;(setq writeroom-fullscreen-effect 'maximized)
 )
+#+end_src
+
+Global keybindings.
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "M-n")
+    (lambda () (interactive) (forward-line  5)))
+(global-set-key (kbd "M-p")
+    (lambda () (interactive) (forward-line -5)))
 #+end_src

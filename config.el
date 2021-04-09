@@ -97,6 +97,24 @@
 
 (setq org-roam-directory orgroam-directory)
 
+(use-package emmet-mode
+:after(web-mode css-mode scss-mode)
+:commands (emmet-mode emmet-expand-line yas/insert-snippet yas-insert-snippet company-complete)
+:config
+(setq emmet-move-cursor-between-quotes t)
+(add-hook 'emmet-mode-hook (lambda () (setq emmet-indent-after-insert nil)))
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+;(setq emmet-indentation 2)
+(unbind-key "C-M-<left>" emmet-mode-keymap)
+(unbind-key "C-M-<right>" emmet-mode-keymap)
+:bind
+("C-j" . emmet-expand-line)
+((:map emmet-mode-keymap
+         ("C-c [" . emmet-prev-edit-point)
+         ("C-c ]" . emmet-next-edit-point)))
+);end emmet mode
+
 (use-package! writeroom-mode
   :bind
   ("C-c d" . writeroom-mode)

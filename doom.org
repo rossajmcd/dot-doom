@@ -121,7 +121,6 @@ We start by simply defining the standard headers used by the three files. These 
 ;;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;;(unpin! t)
-(package! writeroom-mode)
 #+end_src
 #+html: </details>
 
@@ -252,7 +251,7 @@ This code is written to the =init.el= to select which modules to load. Written h
  ;;objed               ; text object editing for the innocent
  ;;parinfer            ; turn lisp into python, sort of
  ;;rotate-text         ; cycle region at point between text candidates
- snippets              ; my elves. They type so I don't have to
+ ;;snippets            ; my elves. They type so I don't have to
  ;;word-wrap           ; soft wrapping with language-aware indent
 
  :emacs
@@ -379,6 +378,25 @@ This code is written to the =init.el= to select which modules to load. Written h
  (default +bindings +smartparens))
 #+end_src
 
+* Packages configuration
+
+Disable snippets and auto-suggestions.
+
+#+begin_src emacs-lisp :tangle packages.el
+(package! emacs-snippets :disable t)
+#+end_src
+
+Add emmet-mode
+#+begin_src emacs-list :tangle packages.el
+(package! emmet-mode)
+#+end_src
+
+Add write-room.
+
+#+begin_src emacs-lisp :tangle packages.el
+(package! writeroom-mode)
+#+end_src
+
 * General configuration
 
 My user information.
@@ -472,6 +490,27 @@ org-roam.
 
 #+begin_src emacs-lisp
 (setq org-roam-directory orgroam-directory)
+#+end_src
+
+emmet-mode for character exoansion from typed expressions (zencoding etc)
+#+begin_src emacs-lisp
+(use-package emmet-mode
+:after(web-mode css-mode scss-mode)
+:commands (emmet-mode emmet-expand-line yas/insert-snippet yas-insert-snippet company-complete)
+:config
+(setq emmet-move-cursor-between-quotes t)
+(add-hook 'emmet-mode-hook (lambda () (setq emmet-indent-after-insert nil)))
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+;(setq emmet-indentation 2)
+(unbind-key "C-M-<left>" emmet-mode-keymap)
+(unbind-key "C-M-<right>" emmet-mode-keymap)
+:bind
+("C-j" . emmet-expand-line)
+((:map emmet-mode-keymap
+         ("C-c [" . emmet-prev-edit-point)
+         ("C-c ]" . emmet-next-edit-point)))
+);end emmet mode
 #+end_src
 
 writeroom-mode distractoin free writing.

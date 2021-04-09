@@ -52,4 +52,9 @@
 ;;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;;(unpin! t)
+
+(package! emacs-snippets :disable t)
+
 (package! writeroom-mode)
+
+(package! emmet-mode)

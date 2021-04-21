@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# contributor: Ross McDonald <rossajmcd@gmail.com>
+# name: <h4> ... </h4> - dracula ui heading purple cyan
+# group: heading
+# --
+<h4 class="drac-heading drac-heading-sm drac-text-purple-cyan">$0</h4>

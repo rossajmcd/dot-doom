@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# contributor: Ross McDonald <rossajmcd@gmail.com>
+# name: <p> ... </p> - dracula ui white text
+# group: text
+# --
+<p class="drac-text drac-line-height drac-text-white">
+    $0
+</p>

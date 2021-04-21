@@ -222,7 +222,7 @@ This code is written to the =init.el= to select which modules to load. Written h
  ;;(emoji +unicode)    ; 🙂
  ;;fill-column         ; a `fill-column' indicator
  hl-todo               ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
- ;;hydra
+ hydra
  ;;indent-guides       ; highlighted indent columns
  ligatures             ; ligatures and symbols to make your code pretty again
  ;;minimap             ; show a map of the code on the side
@@ -511,6 +511,25 @@ emmet-mode for character exoansion from typed expressions (zencoding etc)
          ("C-c [" . emmet-prev-edit-point)
          ("C-c ]" . emmet-next-edit-point)))
 );end emmet mode
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package hydra
+  :defer 2
+  :bind ("C-c h" . hydra-clock/body))
+
+(defhydra hydra-clock (:color blue)
+    "
+    ^Dracula UI Doom Snippets
+    ^
+    ^Snippet^             ^abbr^
+    ^─────^─────────────^──^─────────
+    dpw               dracula paragraph
+    dulp              dracula ul purple list style
+    dh3pc             dracula h3 purple cyan
+    dh4pc             dracula h4 purple cyan
+    "
+    ("q" nil))
 #+end_src
 
 writeroom-mode distractoin free writing.

@@ -115,6 +115,23 @@
          ("C-c ]" . emmet-next-edit-point)))
 );end emmet mode
 
+(use-package hydra
+  :defer 2
+  :bind ("C-c h" . hydra-clock/body))
+
+(defhydra hydra-clock (:color blue)
+    "
+    ^Dracula UI Doom Snippets
+    ^
+    ^Snippet^             ^abbr^
+    ^─────^─────────────^──^─────────
+    dpw               dracula paragraph
+    dulp              dracula ul purple list style
+    dh3pc             dracula h3 purple cyan
+    dh4pc             dracula h4 purple cyan
+    "
+    ("q" nil))
+
 (use-package! writeroom-mode
   :bind
   ("C-c d" . writeroom-mode)

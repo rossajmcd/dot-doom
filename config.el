@@ -64,6 +64,8 @@
 
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 
+(setq doom-theme 'doom-dracula)
+
 (setq projectile-project-search-path "~/Projects/mine/")
 
 (setq kill-whole-line t)

@@ -418,7 +418,7 @@ Prevents some cases of Emacs flickering
 
 Use the Dracula theme - just use it everywhere :-)
 
-,#+begin_src emacs-lisp
+#+begin_src emacs-lisp
 (setq doom-theme 'doom-dracula)
 #+end_src
 

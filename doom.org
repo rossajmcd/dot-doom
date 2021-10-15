@@ -443,7 +443,7 @@ Global keybindings.
 
 * Packages configuration
 
-emmet-mode for character exoansion from typed expressions (zencoding etc)
+emmet-mode for character expansion from typed expressions (zencoding etc)
 #+begin_src emacs-lisp
 (use-package emmet-mode
 :after(web-mode css-mode scss-mode)

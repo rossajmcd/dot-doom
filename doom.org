@@ -378,7 +378,7 @@ This code is written to the =init.el= to select which modules to load. Written h
  (default +bindings +smartparens))
 #+end_src
 
-* Packages configuration
+* Packages enabling and disabling
 
 Disable snippets and auto-suggestions.
 
@@ -427,12 +427,6 @@ Setting Prjoectile up to know where my projects are.
 (setq projectile-project-search-path "~/Projects/mine/")
 #+end_src
 
-If you use `org' and don't want your org files in the default location below,
-change `org-directory'. It must be set before org loads!
-,#+begin_src emacs-lisp
-(setq org-directory "~/org")
-#+end_src
-
 When at the beginning of the line, make =Ctrl-K= remove the whole line, instead of just emptying it.
 
 #+begin_src emacs-lisp
@@ -445,13 +439,19 @@ Disable line numbers.
 (setq display-line-numbers-type t)
 #+end_src
 
-* org-mode and related config
+Global keybindings.
 
 #+begin_src emacs-lisp
-(setq org-directory "~/org")
+(global-set-key (kbd "M-n")
+    (lambda () (interactive) (forward-line  5)))
+(global-set-key (kbd "M-p")
+    (lambda () (interactive) (forward-line -5)))
 #+end_src
 
+* Packages configuration
+
 emmet-mode for character exoansion from typed expressions (zencoding etc)
+
 #+begin_src emacs-lisp
 (use-package emmet-mode
 :after(web-mode css-mode scss-mode)
@@ -472,6 +472,34 @@ emmet-mode for character exoansion from typed expressions (zencoding etc)
 );end emmet mode
 #+end_src
 
+writeroom-mode distraction free writing.
+
+#+begin_src emacs-lisp
+(use-package! writeroom-mode
+  :bind
+  ("C-c d" . writeroom-mode)
+  ;;:hook
+  ;;(org-mode . writeroom-mode)
+  ;;(w3m-mode . writeroom-mode)
+  ;;:config
+  ;;(advice-add 'text-scale-adjust :after
+              ;;#'visual-fill-column-adjust)
+
+  ;;;https://github.com/joostkremers/writeroom-mode#fullscreen-effect
+  ;;(setq writeroom-fullscreen-effect 'maximized)
+)
+#+end_src
+
+* org-mode and org related config
+
+If you use `org' and don't want your org files in the default location below,
+change `org-directory'. It must be set before org loads!
+#+begin_src emacs-lisp
+(setq org-directory "~/org")
+#+end_src
+
+* Help via different hydra elements
+
 #+begin_src emacs-lisp
 (use-package hydra
   :defer 2
@@ -491,32 +519,7 @@ emmet-mode for character exoansion from typed expressions (zencoding etc)
     ("q" nil))
 #+end_src
 
-writeroom-mode distraction free writing.
-
-#+begin_src emacs-lisp
-(use-package! writeroom-mode
-  :bind
-  ("C-c d" . writeroom-mode)
-  ;;:hook
-  ;;(org-mode . writeroom-mode)
-  ;;(w3m-mode . writeroom-mode)
-  ;;:config
-  ;;(advice-add 'text-scale-adjust :after
-              ;;#'visual-fill-column-adjust)
-
-  ;;;https://github.com/joostkremers/writeroom-mode#fullscreen-effect
-  ;;(setq writeroom-fullscreen-effect 'maximized)
-)
-#+end_src
-
-Global keybindings.
-
-#+begin_src emacs-lisp
-(global-set-key (kbd "M-n")
-    (lambda () (interactive) (forward-line  5)))
-(global-set-key (kbd "M-p")
-    (lambda () (interactive) (forward-line -5)))
-#+end_src
+* Dashboard configuration
 
 Add a phrase from file to the dashboard.
 

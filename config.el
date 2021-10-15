@@ -70,7 +70,10 @@
 
 (setq display-line-numbers-type t)
 
-(setq org-directory "~/org")
+(global-set-key (kbd "M-n")
+    (lambda () (interactive) (forward-line  5)))
+(global-set-key (kbd "M-p")
+    (lambda () (interactive) (forward-line -5)))
 
 (use-package emmet-mode
 :after(web-mode css-mode scss-mode)
@@ -90,6 +93,22 @@
          ("C-c ]" . emmet-next-edit-point)))
 );end emmet mode
 
+(use-package! writeroom-mode
+  :bind
+  ("C-c d" . writeroom-mode)
+  ;;:hook
+  ;;(org-mode . writeroom-mode)
+  ;;(w3m-mode . writeroom-mode)
+  ;;:config
+  ;;(advice-add 'text-scale-adjust :after
+              ;;#'visual-fill-column-adjust)
+
+  ;;;https://github.com/joostkremers/writeroom-mode#fullscreen-effect
+  ;;(setq writeroom-fullscreen-effect 'maximized)
+)
+
+(setq org-directory "~/org")
+
 (use-package hydra
   :defer 2
   :bind ("C-c h" . hydra-clock/body))
@@ -106,25 +125,6 @@
     dh4pc             dracula h4 purple cyan
     "
     ("q" nil))
-
-(use-package! writeroom-mode
-  :bind
-  ("C-c d" . writeroom-mode)
-  ;;:hook
-  ;;(org-mode . writeroom-mode)
-  ;;(w3m-mode . writeroom-mode)
-  ;;:config
-  ;;(advice-add 'text-scale-adjust :after
-              ;;#'visual-fill-column-adjust)
-
-  ;;;https://github.com/joostkremers/writeroom-mode#fullscreen-effect
-  ;;(setq writeroom-fullscreen-effect 'maximized)
-)
-
-(global-set-key (kbd "M-n")
-    (lambda () (interactive) (forward-line  5)))
-(global-set-key (kbd "M-p")
-    (lambda () (interactive) (forward-line -5)))
 
 (defvar splash-phrase-source-folder
   (expand-file-name "misc/splash-phrases" doom-private-dir)

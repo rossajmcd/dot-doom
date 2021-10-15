@@ -72,31 +72,6 @@
 
 (setq org-directory "~/org")
 
-(setq orgroam-directory "~/icloud-roam")
-
-(use-package! org-journal
-    :bind
-    ("C-c j" . org-journal-new-entry)
-    ("C-c b" . org-journal-previous-entry)
-    ("C-c f" . org-journal-next-entry)
-    :config
-    (setq org-journal-dir orgroam-directory
-          org-journal-date-prefix "#+title: "
-          org-journal-file-format "%Y-%m-%d.org"
-          org-journal-date-format "%Y-%m-%d\n"))
-
-(use-package deft
-  :after org
-  :bind
-  ("C-c n d" . deft)
-  :custom
-  (deft-recursive t)
-  (deft-use-filter-string-for-filename t)
-  (deft-default-extension "org")
-  (deft-directory orgroam-directory))
-
-(setq org-roam-directory orgroam-directory)
-
 (use-package emmet-mode
 :after(web-mode css-mode scss-mode)
 :commands (emmet-mode emmet-expand-line yas/insert-snippet yas-insert-snippet company-complete)

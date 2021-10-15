@@ -55,6 +55,6 @@
 
 (package! emacs-snippets :disable t)
 
-(package! writeroom-mode)
-
 (package! emmet-mode)
+
+(package! writeroom-mode)

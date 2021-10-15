@@ -451,47 +451,6 @@ Disable line numbers.
 (setq org-directory "~/org")
 #+end_src
 
-org-roam directory.
-
-#+begin_src emacs-lisp
-(setq orgroam-directory "~/icloud-roam")
-#+end_src
-
-org-journal.
-
-#+begin_src emacs-lisp
-(use-package! org-journal
-    :bind
-    ("C-c j" . org-journal-new-entry)
-    ("C-c b" . org-journal-previous-entry)
-    ("C-c f" . org-journal-next-entry)
-    :config
-    (setq org-journal-dir orgroam-directory
-          org-journal-date-prefix "#+title: "
-          org-journal-file-format "%Y-%m-%d.org"
-          org-journal-date-format "%Y-%m-%d\n"))
-#+end_src
-
-Deft for searching over org-roam notes.
-
-#+begin_src emacs-lisp
-(use-package deft
-  :after org
-  :bind
-  ("C-c n d" . deft)
-  :custom
-  (deft-recursive t)
-  (deft-use-filter-string-for-filename t)
-  (deft-default-extension "org")
-  (deft-directory orgroam-directory))
-#+end_src
-
-org-roam.
-
-#+begin_src emacs-lisp
-(setq org-roam-directory orgroam-directory)
-#+end_src
-
 emmet-mode for character exoansion from typed expressions (zencoding etc)
 #+begin_src emacs-lisp
 (use-package emmet-mode

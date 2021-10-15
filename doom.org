@@ -381,7 +381,6 @@ This code is written to the =init.el= to select which modules to load. Written h
 * Packages enabling and disabling
 
 Disable snippets and auto-suggestions.
-
 #+begin_src emacs-lisp :tangle packages.el
 (package! emacs-snippets :disable t)
 #+end_src
@@ -392,7 +391,6 @@ Add emmet-mode
 #+end_src
 
 Add write-room.
-
 #+begin_src emacs-lisp :tangle packages.el
 (package! writeroom-mode)
 #+end_src
@@ -400,7 +398,6 @@ Add write-room.
 * General configuration
 
 My user information.
-
 #+begin_src emacs-lisp
 (setq user-full-name "Ross McDonald"
       user-mail-address "email@rossputin.me")
@@ -417,7 +414,6 @@ Prevents some cases of Emacs flickering
 #+end_src
 
 Use the Dracula theme - just use it everywhere :-)
-
 #+begin_src emacs-lisp
 (setq doom-theme 'doom-dracula)
 #+end_src
@@ -428,19 +424,16 @@ Setting Prjoectile up to know where my projects are.
 #+end_src
 
 When at the beginning of the line, make =Ctrl-K= remove the whole line, instead of just emptying it.
-
 #+begin_src emacs-lisp
 (setq kill-whole-line t)
 #+end_src
 
 Disable line numbers.
-
 #+begin_src emacs-lisp
 (setq display-line-numbers-type t)
 #+end_src
 
 Global keybindings.
-
 #+begin_src emacs-lisp
 (global-set-key (kbd "M-n")
     (lambda () (interactive) (forward-line  5)))
@@ -451,7 +444,6 @@ Global keybindings.
 * Packages configuration
 
 emmet-mode for character exoansion from typed expressions (zencoding etc)
-
 #+begin_src emacs-lisp
 (use-package emmet-mode
 :after(web-mode css-mode scss-mode)
@@ -473,7 +465,6 @@ emmet-mode for character exoansion from typed expressions (zencoding etc)
 #+end_src
 
 writeroom-mode distraction free writing.
-
 #+begin_src emacs-lisp
 (use-package! writeroom-mode
   :bind

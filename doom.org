@@ -491,7 +491,7 @@ emmet-mode for character exoansion from typed expressions (zencoding etc)
     ("q" nil))
 #+end_src
 
-writeroom-mode distractoin free writing.
+writeroom-mode distraction free writing.
 
 #+begin_src emacs-lisp
 (use-package! writeroom-mode

@@ -416,7 +416,7 @@ Prevents some cases of Emacs flickering
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 #+end_src
 
-Use the default Emacs Doom theme.
+Use the Dracula theme - just use it everywhere :-)
 
 ,#+begin_src emacs-lisp
 (setq doom-theme 'doom-dracula)

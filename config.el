@@ -113,10 +113,16 @@
 
 (use-package hydra
   :defer 2
-  :bind ("C-c h" . hydra-clock/body))
+  :bind ("C-c h" . hydra-general-help/body))
 
-(defhydra hydra-clock (:color blue)
+(defhydra hydra-general-help (:color blue)
     "
+    ^Useful commands
+    ^
+    ^Keys^                ^Command^
+    ^─────^─────────────^──^─────────
+    C-c d             Writeroom distraction free mode
+
     ^Dracula UI Doom Snippets
     ^
     ^Snippet^             ^abbr^

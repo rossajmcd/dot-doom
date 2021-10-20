@@ -72,10 +72,7 @@
 
 (setq display-line-numbers-type t)
 
-(global-set-key (kbd "M-n")
-    (lambda () (interactive) (forward-line  5)))
-(global-set-key (kbd "M-p")
-    (lambda () (interactive) (forward-line -5)))
+(setq-hook! 'clojure-mode-hook fill-column 100)
 
 (use-package emmet-mode
 :after(web-mode css-mode scss-mode)

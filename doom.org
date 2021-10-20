@@ -433,8 +433,13 @@ Disable line numbers.
 (setq display-line-numbers-type t)
 #+end_src
 
-Global keybindings.
+Set column width to 100 as this is 2021 and my screen and many others are very big
 #+begin_src emacs-lisp
+(setq-hook! 'clojure-mode-hook fill-column 100)
+#+end_src
+
+Global keybindings.
+,#+begin_src emacs-lisp
 (global-set-key (kbd "M-n")
     (lambda () (interactive) (forward-line  5)))
 (global-set-key (kbd "M-p")

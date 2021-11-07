@@ -338,7 +338,7 @@ This code is written to the =init.el= to select which modules to load. Written h
  (org
   +pretty
   +journal
-  +roam
+  ;;+roam
   +dragndrop
   +present)            ; organize your plain life in plain text
  ;;php                 ; perl's insecure younger brother

@@ -156,7 +156,7 @@
  (org
   +pretty
   +journal
-  +roam
+  ;;+roam
   +dragndrop
   +present)            ; organize your plain life in plain text
  ;;php                 ; perl's insecure younger brother
